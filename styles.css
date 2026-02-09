@@ -71,8 +71,8 @@ header {
 
 .logo a:hover,
 .logo a:focus {
-    color: #3498db;
-    outline: 2px solid #3498db;
+    color: #34a06e;
+    outline: 2px solid #34a06e;
     outline-offset: 4px;
 }
 
@@ -99,12 +99,12 @@ header {
 .nav-menu a:hover,
 .nav-menu a:focus {
     background-color: #34495e;
-    color: #3498db;
-    outline: 2px solid #3498db;
+    color: #34a06e;
+    outline: 2px solid #34a06e;
 }
 
 .nav-menu a.active {
-    background-color: #3498db;
+    background-color: #2a7d5b;
     font-weight: 600;
 }
 
@@ -115,7 +115,7 @@ main {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #1a6b4a 0%, #2a8c5f 100%);
     color: white;
     padding: 4rem 0;
     text-align: center;
@@ -150,6 +150,8 @@ main {
     color: #34495e;
     margin-top: 2rem;
     margin-bottom: 1rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid #d4edda;
 }
 
 .content h3 {
@@ -176,6 +178,20 @@ main {
     line-height: 1.8;
 }
 
+.content a {
+    color: #2a7d5b;
+    text-decoration: underline;
+    text-decoration-color: #b8dfc9;
+    text-underline-offset: 2px;
+    transition: color 0.2s ease;
+}
+
+.content a:hover,
+.content a:focus {
+    color: #1a5c3a;
+    text-decoration-color: #2a7d5b;
+}
+
 /* Contact Info */
 .contact-info {
     margin-top: 2rem;
@@ -197,7 +213,7 @@ footer p {
 /* Focus States for Accessibility */
 a:focus,
 button:focus {
-    outline: 2px solid #3498db;
+    outline: 2px solid #2a7d5b;
     outline-offset: 2px;
 }
 
