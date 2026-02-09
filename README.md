@@ -12,7 +12,7 @@ This site provides information about Keystone Neuroinformatics, our mission, foc
 - **about.html** - Information about our mission, approach, and values
 - **focus.html** - Details about our key focus areas
 - **contact.html** - Contact information and inquiry guidelines
-- **styles.css** - Responsive, accessible styling for all pages
+- **styles-v2.css** - Responsive, accessible styling for all pages
 
 ## Features
 
