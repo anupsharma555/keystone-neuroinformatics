@@ -244,6 +244,12 @@ main {
     outline-offset: 2px;
 }
 
+.copy-email-btn.copied {
+    background-color: var(--color-accent-light);
+    color: white;
+    border-color: var(--color-accent);
+}
+
 /* Footer */
 footer {
     background-color: var(--color-header);

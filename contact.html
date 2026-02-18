@@ -40,21 +40,21 @@
                     <p>For general inquiries, please contact:</p>
                     <p>
                         <a href="mailto:info@keystoneneuroinformatics.com">General inquiries (info@keystoneneuroinformatics.com)</a>
-                        <button class="copy-email-btn" onclick="copyEmail('info@keystoneneuroinformatics.com', this)" aria-label="Copy info@keystoneneuroinformatics.com to clipboard">Copy</button>
+                        <button class="copy-email-btn" data-email="info@keystoneneuroinformatics.com" aria-label="Copy info@keystoneneuroinformatics.com to clipboard">Copy</button>
                     </p>
                     
                     <h3>Collaboration</h3>
                     <p>We are interested in collaborating with researchers, institutions, and organizations working in related behavioral health fields.</p>
                     <p>
                         <a href="mailto:collaborate@keystoneneuroinformatics.com">Collaborations (collaborate@keystoneneuroinformatics.com)</a>
-                        <button class="copy-email-btn" onclick="copyEmail('collaborate@keystoneneuroinformatics.com', this)" aria-label="Copy collaborate@keystoneneuroinformatics.com to clipboard">Copy</button>
+                        <button class="copy-email-btn" data-email="collaborate@keystoneneuroinformatics.com" aria-label="Copy collaborate@keystoneneuroinformatics.com to clipboard">Copy</button>
                     </p>
                     
                     <h3>Research Inquiries</h3>
                     <p>For questions about our research methods, tools, or publications, please send detailed inquiries outlining your specific interests to:</p>
                     <p>
                         <a href="mailto:collaborate@keystoneneuroinformatics.com">collaborate@keystoneneuroinformatics.com</a>
-                        <button class="copy-email-btn" onclick="copyEmail('collaborate@keystoneneuroinformatics.com', this)" aria-label="Copy collaborate@keystoneneuroinformatics.com to clipboard">Copy</button>
+                        <button class="copy-email-btn" data-email="collaborate@keystoneneuroinformatics.com" aria-label="Copy collaborate@keystoneneuroinformatics.com to clipboard">Copy</button>
                     </p>
                 </div>
             </div>
@@ -68,34 +68,77 @@
     </footer>
 
     <script>
+        // Copy email functionality
         function copyEmail(email, button) {
-            // Use the Clipboard API to copy the email
-            navigator.clipboard.writeText(email).then(function() {
-                // Success: Show "Copied" feedback
-                const originalText = button.textContent;
-                button.textContent = 'Copied';
-                button.style.backgroundColor = 'var(--color-accent-light)';
-                button.style.color = 'white';
-                button.style.borderColor = 'var(--color-accent)';
-                
-                // Revert back to "Copy" after 1.5 seconds
-                setTimeout(function() {
-                    button.textContent = originalText;
-                    button.style.backgroundColor = '';
-                    button.style.color = '';
-                    button.style.borderColor = '';
-                }, 1500);
-            }).catch(function(err) {
-                // Error: Show "Copy failed" feedback
-                const originalText = button.textContent;
-                button.textContent = 'Copy failed';
-                
-                // Revert back to "Copy" after 2 seconds
-                setTimeout(function() {
-                    button.textContent = originalText;
-                }, 2000);
-            });
+            var originalText = button.textContent;
+            
+            // Try modern Clipboard API first
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(email).then(function() {
+                    // Success
+                    showCopyFeedback(button, originalText, 'Copied', 1500);
+                }).catch(function(err) {
+                    // Fallback if Clipboard API fails
+                    if (fallbackCopy(email)) {
+                        showCopyFeedback(button, originalText, 'Copied', 1500);
+                    } else {
+                        showCopyFeedback(button, originalText, 'Copy failed', 2000);
+                    }
+                });
+            } else {
+                // Use fallback for older browsers
+                if (fallbackCopy(email)) {
+                    showCopyFeedback(button, originalText, 'Copied', 1500);
+                } else {
+                    showCopyFeedback(button, originalText, 'Copy failed', 2000);
+                }
+            }
         }
+        
+        // Fallback copy method for older browsers
+        function fallbackCopy(text) {
+            var textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                var successful = document.execCommand('copy');
+                document.body.removeChild(textArea);
+                return successful;
+            } catch (err) {
+                document.body.removeChild(textArea);
+                return false;
+            }
+        }
+        
+        // Show feedback and revert after timeout
+        function showCopyFeedback(button, originalText, message, duration) {
+            button.textContent = message;
+            if (message === 'Copied') {
+                button.classList.add('copied');
+            }
+            
+            setTimeout(function() {
+                button.textContent = originalText;
+                button.classList.remove('copied');
+            }, duration);
+        }
+        
+        // Attach event listeners to all copy buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            var copyButtons = document.querySelectorAll('.copy-email-btn');
+            copyButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var email = this.getAttribute('data-email');
+                    copyEmail(email, this);
+                });
+            });
+        });
     </script>
 </body>
 </html>
