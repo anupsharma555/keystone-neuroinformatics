@@ -38,15 +38,24 @@
                 <div class="contact-info">
                     <h3>Email</h3>
                     <p>For general inquiries, please contact:</p>
-                    <p><a href="mailto:info@keystoneneuroinformatics.com">General inquiries (info@keystoneneuroinformatics.com)</a></p>
+                    <p>
+                        <a href="mailto:info@keystoneneuroinformatics.com">General inquiries (info@keystoneneuroinformatics.com)</a>
+                        <button class="copy-email-btn" onclick="copyEmail('info@keystoneneuroinformatics.com', this)" aria-label="Copy info@keystoneneuroinformatics.com to clipboard">Copy</button>
+                    </p>
                     
                     <h3>Collaboration</h3>
                     <p>We are interested in collaborating with researchers, institutions, and organizations working in related behavioral health fields.</p>
-                    <p><a href="mailto:collaborate@keystoneneuroinformatics.com">Collaborations (collaborate@keystoneneuroinformatics.com)</a></p>
+                    <p>
+                        <a href="mailto:collaborate@keystoneneuroinformatics.com">Collaborations (collaborate@keystoneneuroinformatics.com)</a>
+                        <button class="copy-email-btn" onclick="copyEmail('collaborate@keystoneneuroinformatics.com', this)" aria-label="Copy collaborate@keystoneneuroinformatics.com to clipboard">Copy</button>
+                    </p>
                     
                     <h3>Research Inquiries</h3>
                     <p>For questions about our research methods, tools, or publications, please send detailed inquiries outlining your specific interests to:</p>
-                    <p><a href="mailto:collaborate@keystoneneuroinformatics.com">collaborate@keystoneneuroinformatics.com</a></p>
+                    <p>
+                        <a href="mailto:collaborate@keystoneneuroinformatics.com">collaborate@keystoneneuroinformatics.com</a>
+                        <button class="copy-email-btn" onclick="copyEmail('collaborate@keystoneneuroinformatics.com', this)" aria-label="Copy collaborate@keystoneneuroinformatics.com to clipboard">Copy</button>
+                    </p>
                 </div>
             </div>
         </section>
@@ -57,5 +66,36 @@
             <p>&copy; 2026 Keystone Neuroinformatics. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function copyEmail(email, button) {
+            // Use the Clipboard API to copy the email
+            navigator.clipboard.writeText(email).then(function() {
+                // Success: Show "Copied" feedback
+                const originalText = button.textContent;
+                button.textContent = 'Copied';
+                button.style.backgroundColor = 'var(--color-accent-light)';
+                button.style.color = 'white';
+                button.style.borderColor = 'var(--color-accent)';
+                
+                // Revert back to "Copy" after 1.5 seconds
+                setTimeout(function() {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = '';
+                    button.style.color = '';
+                    button.style.borderColor = '';
+                }, 1500);
+            }).catch(function(err) {
+                // Error: Show "Copy failed" feedback
+                const originalText = button.textContent;
+                button.textContent = 'Copy failed';
+                
+                // Revert back to "Copy" after 2 seconds
+                setTimeout(function() {
+                    button.textContent = originalText;
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>
