@@ -1,0 +1,45 @@
+---
+layout: layouts/base.njk
+---
+<main id="main-content">
+  <section class="page-band">
+    <div class="container page-band-inner">
+      <p class="eyebrow">Research scaffold</p>
+      <h1>{{ title }}</h1>
+      {% if date %}
+      <p class="page-meta">{{ date | readableDate }}</p>
+      {% endif %}
+      <p class="page-intro">{{ summary }}</p>
+    </div>
+  </section>
+  <section class="content-section">
+    <div class="container prose-flow">
+      {% if placeholder %}
+        {% set message = "This research entry is a placeholder for future summaries, commentary, or publication-linked updates." %}
+        {% include "partials/empty-state.njk" %}
+      {% endif %}
+      {% if image %}
+      <figure class="detail-media">
+        <img src="{{ image }}" alt="{{ imageAlt or title }}">
+        {% if imageCaption %}
+        <figcaption>{{ imageCaption }}</figcaption>
+        {% endif %}
+      </figure>
+      {% endif %}
+      <section>
+        <h2>Key Insight</h2>
+        <p>{{ key_insight }}</p>
+      </section>
+      <section>
+        <h2>Implications</h2>
+        <p>{{ implications }}</p>
+      </section>
+      {% if related_project %}
+      <section class="callout">
+        <h2>Related Project</h2>
+        <p><a href="{{ related_project.href }}">{{ related_project.label }}</a></p>
+      </section>
+      {% endif %}
+    </div>
+  </section>
+</main>

@@ -1,0 +1,33 @@
+{% macro collectionCard(entry, kind) %}
+<article class="card card-collection">
+  <div class="card-media{% if not entry.data.image %} card-media-placeholder{% endif %}">
+    {% if entry.data.image %}
+    <div class="card-media-frame">
+      <img src="{{ entry.data.image }}" alt="{{ entry.data.imageAlt or entry.data.title }}">
+    </div>
+    {% else %}
+    <span>{{ kind }} image slot</span>
+    {% endif %}
+  </div>
+  <div class="meta-row">
+    {% if entry.data.status %}
+    <span class="card-pill">{{ entry.data.status }}</span>
+    {% endif %}
+    {% if entry.data.placeholder %}
+    <span class="card-pill">Placeholder</span>
+    {% endif %}
+  </div>
+  <h3><a href="{{ entry.url }}">{{ entry.data.title }}</a></h3>
+  <p>{{ entry.data.summary }}</p>
+  {% if kind == "Research update" and entry.data.key_insight %}
+  <p class="card-detail"><strong>Key insight:</strong> {{ entry.data.key_insight }}</p>
+  {% endif %}
+  {% if kind == "Research update" and entry.data.implications %}
+  <p class="card-detail"><strong>Why it matters:</strong> {{ entry.data.implications }}</p>
+  {% endif %}
+  {% if entry.data.date %}
+  <p class="page-meta">{{ entry.data.date | readableDate }}</p>
+  {% endif %}
+  <p><a href="{{ entry.url }}">Open {{ kind | lower }} page</a></p>
+</article>
+{% endmacro %}

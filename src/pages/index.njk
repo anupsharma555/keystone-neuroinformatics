@@ -1,0 +1,100 @@
+---
+layout: layouts/base.njk
+title: Keystone Neuroinformatics
+metaTitle: Keystone Neuroinformatics | Clinical AI, computational psychiatry, and translational neuroscience
+metaDescription: Keystone Neuroinformatics brings together clinical AI, computational psychiatry, neuroimaging, and translational behavioral health research in a focused, future-ready publishing site.
+canonicalPath: /
+permalink: /index.html
+pageType: home
+---
+{% from "partials/card-macros.njk" import collectionCard %}
+<main id="main-content">
+  {% set eyebrow = "Clinical AI • Psychiatry • Neuroscience" %}
+  {% set heading = "A future-ready home for behavioral health informatics." %}
+  {% set text = "Keystone Neuroinformatics focuses on clinical AI, computational psychiatry, multimodal data, and translational behavioral health research in a format built for careful growth." %}
+  {% set actions = [
+    { "label": "Explore projects", "href": "/projects/" },
+    { "label": "Research updates", "href": "/research/" }
+  ] %}
+  {% include "partials/hero.njk" %}
+
+  <section class="section">
+    <div class="container">
+      <h2>Core areas</h2>
+      <p class="section-lead">The core areas are deliberately focused: clinical AI, computational psychiatry, neuroimaging, and translational research connected to meaningful behavioral health questions.</p>
+      <div class="card-grid">
+        <article class="card">
+          <span class="card-pill">Clinical AI</span>
+          <h3>Evaluation and applied use of AI in psychiatry</h3>
+          <p>Experience spanning model evaluation, prompt design, dataset development, and reasoning assessment for medically complex psychiatric use cases.</p>
+        </article>
+        <article class="card">
+          <span class="card-pill">Neuroimaging</span>
+          <h3>Computational psychiatry and biomarkers</h3>
+          <p>Work in reward circuitry, dimensional psychopathology, structural and functional imaging, and clinically relevant interpretation of multimodal data.</p>
+        </article>
+        <article class="card">
+          <span class="card-pill">Translation</span>
+          <h3>Clinical trials and translational research</h3>
+          <p>Grounding in psychiatry trials, outcome measures, intervention design, and practical paths from scientific ideas to real-world clinical relevance.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Background</h2>
+      <p class="section-lead">The content direction is informed by work across psychiatry, neuroimaging, translational neuroscience, clinical trials, and recent evaluation of AI systems in medicine.</p>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Behavioral health and psychiatry</h3>
+          <p>Board-certified clinical grounding with emphasis on serious mood, psychotic, and neuropsychiatric disorders.</p>
+        </article>
+        <article class="card">
+          <h3>Research and publication</h3>
+          <p>Peer-reviewed work in computational psychiatry, reward dysfunction, clinical interventions, translational neuroscience, and molecular neurobiology.</p>
+        </article>
+        <article class="card">
+          <h3>Future-ready publishing</h3>
+          <p>A static architecture designed for clean project profiles, research updates, AI discoverability, and a modest collaborative intake workflow.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Projects</h2>
+      <p class="section-lead">Each project page is a focused theme page that can later hold publications, methods, visuals, and updates without changing the site structure.</p>
+      <div class="card-grid">
+        {% for project in collections.projects %}
+        {{ collectionCard(project, "Project") }}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <h2>Selected updates</h2>
+      <p class="section-lead">The research archive is designed for concise summaries of published work, focused commentary, and occasional project-linked updates rather than a high-volume blog.</p>
+      <div class="card-grid">
+        {% for entry in collections.researchUpdates %}
+        {{ collectionCard(entry, "Research update") }}
+        {% endfor %}
+      </div>
+      <p><a class="button" href="/research/">View all research updates</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="callout">
+        <h2>Built for clear insights and future growth</h2>
+        <p>The site is structured to support clean project pages, concise research updates, and thoughtful collaboration intake without becoming overly complex.</p>
+        <p><a href="/collaborate/">Review collaboration topics</a> or <a href="/about/">read the background and research context</a>.</p>
+      </div>
+    </div>
+  </section>
+</main>

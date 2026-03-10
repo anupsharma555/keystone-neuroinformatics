@@ -1,0 +1,25 @@
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      {% if eyebrow %}
+      <p class="eyebrow">{{ eyebrow }}</p>
+      {% endif %}
+      <h1>{{ heading }}</h1>
+      <p class="tagline">{{ text }}</p>
+      {% if actions %}
+      <div class="hero-actions">
+        {% for action in actions %}
+        <a class="{% if loop.index == 1 %}button{% else %}button button-secondary{% endif %}" href="{{ action.href }}">{{ action.label }}</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <span class="node node-a"></span>
+      <span class="node node-b"></span>
+      <span class="node node-c"></span>
+      <span class="node node-d"></span>
+      <span class="node node-e"></span>
+    </div>
+  </div>
+</section>

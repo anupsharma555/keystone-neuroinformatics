@@ -1,0 +1,20 @@
+<header class="site-header">
+  <nav class="nav-shell container" aria-label="Main navigation">
+    <div class="nav-topline">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>{{ site.name }}</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-list">
+        Menu
+      </button>
+    </div>
+    <ul class="nav-menu" id="site-nav-list">
+      {% for item in site.navigation %}
+      <li>
+        <a href="{{ item.href }}" {% if page.url == item.href %}class="active" aria-current="page"{% endif %}>{{ item.label }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#1f6d4c"/>
+      <stop offset="100%" stop-color="#2d8f61"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#23364a"/>
+  <rect x="42" y="42" width="1116" height="546" rx="36" fill="url(#bg)"/>
+  <circle cx="860" cy="190" r="18" fill="#d8ffec"/>
+  <circle cx="968" cy="248" r="25" fill="#d8ffec"/>
+  <circle cx="832" cy="344" r="14" fill="#d8ffec"/>
+  <circle cx="995" cy="390" r="22" fill="#d8ffec"/>
+  <path d="M860 190L968 248L832 344L995 390" fill="none" stroke="#d8ffec" stroke-opacity="0.7" stroke-width="8" stroke-linecap="round"/>
+  <text x="96" y="220" fill="#ffffff" font-size="34" font-family="Arial, sans-serif" letter-spacing="6">KEYSTONE NEUROINFORMATICS</text>
+  <text x="96" y="320" fill="#ffffff" font-size="76" font-weight="700" font-family="Arial, sans-serif">Behavioral health neuroscience</text>
+  <text x="96" y="404" fill="#ffffff" font-size="76" font-weight="700" font-family="Arial, sans-serif">through data and computation</text>
+  <text x="96" y="500" fill="#d7f8e7" font-size="34" font-family="Arial, sans-serif">Static research publishing scaffold ready for projects, research updates, and SEO metadata.</text>
+</svg>

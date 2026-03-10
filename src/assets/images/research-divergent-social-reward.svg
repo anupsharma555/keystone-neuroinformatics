@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="Abstract divergent pathways icon">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#21384a"/>
+      <stop offset="100%" stop-color="#2c8a60"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" rx="44" fill="url(#bg)"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M310 480C355 420 412 376 482 348" stroke="#d9ffec" stroke-opacity="0.75" stroke-width="18"/>
+    <path d="M890 480C845 420 788 376 718 348" stroke="#d9ffec" stroke-opacity="0.75" stroke-width="18"/>
+    <path d="M520 330C545 270 575 245 600 245C625 245 655 270 680 330" stroke="#9fe3c0" stroke-width="16"/>
+  </g>
+  <g fill="#d9ffec">
+    <circle cx="310" cy="480" r="26"/>
+    <circle cx="482" cy="348" r="22"/>
+    <circle cx="718" cy="348" r="22"/>
+    <circle cx="890" cy="480" r="26"/>
+    <circle cx="600" cy="245" r="24"/>
+  </g>
+  <g fill="rgba(217,255,236,0.12)">
+    <circle cx="310" cy="480" r="92"/>
+    <circle cx="890" cy="480" r="92"/>
+    <circle cx="600" cy="245" r="110"/>
+  </g>
+</svg>

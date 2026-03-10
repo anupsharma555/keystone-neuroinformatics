@@ -1,0 +1,115 @@
+---
+title: Collaborate
+metaTitle: Collaborate | Keystone Neuroinformatics
+metaDescription: Start a collaboration discussion with Keystone Neuroinformatics using a structured intake format for project aims, data, constraints, and support needs.
+canonicalPath: /collaborate/
+permalink: /collaborate/index.html
+eyebrow: Collaboration intake
+intro: A simple intake structure for collaboration discussions across the site’s main themes.
+---
+<section>
+  <h2>Who this page is for</h2>
+  <p>This page is intended for researchers, institutions, clinical collaborators, and technical teams who want to discuss a project, analytic need, scientific partnership, or behavioral health informatics problem.</p>
+</section>
+
+<section>
+  <h2>What to include</h2>
+  <ul>
+    <li>Your organization, lab, or project context.</li>
+    <li>The specific aims or core questions you are trying to address.</li>
+    <li>The data types involved, if any, and any constraints around access or governance.</li>
+    <li>The type of support you need: analysis, tooling, workflow design, collaboration, or strategy.</li>
+    <li>Any timeline, milestone, or publication goals that shape the work.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Best-fit topics</h2>
+  <p>Strong fits for this intake include clinical AI, computational psychiatry, neuroimaging and biomarker questions, multimodal data analysis, and translational or trial-oriented behavioral health work.</p>
+</section>
+
+<section>
+  <h2>AI-assisted project ideas</h2>
+  <p>If a visitor is using an AI agent to help frame a new idea, the proposal should still be concrete. A useful submission includes the problem being addressed, the intended users, the data or evidence involved, the expected output, and the reason the idea matters in behavioral health or psychiatry.</p>
+</section>
+
+<section class="contact-panel">
+  <h2>Start the conversation</h2>
+  <p>Use one of the forms below to prepare a structured request. For now, submissions open as a drafted email or can be copied to the clipboard.</p>
+  <div class="action-row">
+    <button class="button js-intake-open" type="button" data-intake-kind="collaboration" data-intake-email="{{ site.contact.collaborate }}">Open collaboration form</button>
+    <button class="button button-secondary-dark js-intake-open" type="button" data-intake-kind="ai-idea" data-intake-email="{{ site.contact.collaborate }}">Open AI idea form</button>
+  </div>
+</section>
+
+<section>
+  <h2>Why this structure matters</h2>
+  <p>The intake format above is intentionally structured so it can evolve later into a proper web form, a CMS-backed request workflow, or an AI-agent-assisted triage process without changing the public information architecture.</p>
+</section>
+
+<section class="callout">
+  <h2>Future agent integration</h2>
+  <p>As the site grows, these fields can become the basis for machine-readable collaboration requests, assistant-driven drafting, or internal intake workflows that help match requests to the right project theme and next step.</p>
+</section>
+
+<dialog class="intake-dialog" id="intake-dialog" aria-labelledby="intake-title">
+  <form class="intake-form" id="intake-form" method="dialog">
+    <div class="intake-header">
+      <div>
+        <p class="eyebrow intake-eyebrow" id="intake-eyebrow">Collaboration intake</p>
+        <h2 id="intake-title">Start a request</h2>
+      </div>
+      <button class="intake-close" type="button" data-intake-close aria-label="Close form">Close</button>
+    </div>
+
+    <div class="intake-grid">
+      <label>
+        <span>Organization or lab</span>
+        <input type="text" name="organization" autocomplete="organization">
+      </label>
+      <label>
+        <span>Project or program</span>
+        <input type="text" name="project">
+      </label>
+      <label class="field-full">
+        <span>Specific aims or core questions</span>
+        <textarea name="aims" rows="4"></textarea>
+      </label>
+      <label class="field-full">
+        <span>Data types or systems involved</span>
+        <textarea name="data" rows="3"></textarea>
+      </label>
+      <label class="field-full">
+        <span>Requested support</span>
+        <textarea name="support" rows="3"></textarea>
+      </label>
+      <label class="field-full">
+        <span>Timeline or constraints</span>
+        <textarea name="timeline" rows="3"></textarea>
+      </label>
+
+      <label class="field-full intake-ai-only">
+        <span>Intended users</span>
+        <textarea name="users" rows="2"></textarea>
+      </label>
+      <label class="field-full intake-ai-only">
+        <span>Expected output</span>
+        <textarea name="output" rows="2"></textarea>
+      </label>
+      <label class="field-full intake-ai-only">
+        <span>Why this matters in behavioral health or psychiatry</span>
+        <textarea name="importance" rows="3"></textarea>
+      </label>
+      <label class="field-full intake-ai-only">
+        <span>Was this drafted with an AI assistant?</span>
+        <input type="text" name="drafted_with_ai" placeholder="e.g. yes, with ChatGPT or Claude">
+      </label>
+    </div>
+
+    <div class="action-row">
+      <button class="button" type="button" id="intake-email-submit">Open email draft</button>
+      <button class="button button-secondary-dark" type="button" id="intake-copy-submit">Copy request text</button>
+    </div>
+    <p class="intake-note" id="intake-note">The form stays on this page and prepares a structured message.</p>
+  </form>
+</dialog>

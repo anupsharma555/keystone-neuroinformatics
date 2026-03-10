@@ -1,0 +1,53 @@
+---
+layout: layouts/base.njk
+---
+<main id="main-content">
+  <section class="page-band">
+    <div class="container page-band-inner">
+      <p class="eyebrow">Project scaffold</p>
+      <h1>{{ title }}</h1>
+      <p class="page-intro">{{ summary }}</p>
+      <div class="meta-row">
+        <span class="status-pill">{{ status or "In development" }}</span>
+      </div>
+    </div>
+  </section>
+  <section class="content-section">
+    <div class="container prose-flow">
+      {% if placeholder %}
+        {% set message = "This project page exists so future project details can be published without changing the site structure." %}
+        {% include "partials/empty-state.njk" %}
+      {% endif %}
+      {% if image %}
+      <figure class="detail-media">
+        <div class="detail-media-frame">
+          <img src="{{ image }}" alt="{{ imageAlt or title }}">
+        </div>
+        {% if imageCaption %}
+        <figcaption>{{ imageCaption }}</figcaption>
+        {% endif %}
+      </figure>
+      {% endif %}
+      <section>
+        <h2>Problem Space</h2>
+        <p>{{ problem }}</p>
+      </section>
+      <section>
+        <h2>Approach</h2>
+        <p>{{ approach }}</p>
+      </section>
+      <section>
+        <h2>Collaborators</h2>
+        <p>{{ collaborators }}</p>
+      </section>
+      <section>
+        <h2>Next Steps</h2>
+        <p>{{ next_steps }}</p>
+      </section>
+      <section class="callout">
+        <h2>Contact</h2>
+        <p>{{ contact_cta }}</p>
+      </section>
+    </div>
+  </section>
+</main>
