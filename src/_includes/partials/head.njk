@@ -1,0 +1,56 @@
+{% set pageTitle = metaTitle or title %}
+{% set pageDescription = metaDescription or description or site.description %}
+{% set canonical = canonicalPath | absoluteUrl(site) %}
+{% set socialImage = (seoImage or site.socialImage) | absoluteUrl(site) %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{ pageDescription }}">
+<link rel="canonical" href="{{ canonical }}">
+<meta name="theme-color" content="{{ site.themeColor }}">
+<meta property="og:type" content="{% if pageType == 'research' and not placeholder %}article{% else %}website{% endif %}">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:locale" content="{{ site.locale }}">
+<meta property="og:title" content="{{ pageTitle }}">
+<meta property="og:description" content="{{ pageDescription }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:image" content="{{ socialImage }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ pageTitle }}">
+<meta name="twitter:description" content="{{ pageDescription }}">
+<meta name="twitter:image" content="{{ socialImage }}">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<title>{{ pageTitle }}</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "{{ site.organization.name }}",
+  "url": "{{ site.url }}",
+  "email": "{{ site.organization.email }}"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ site.name }}",
+  "url": "{{ site.url }}"
+}
+</script>
+{% if pageType == "research" and not placeholder and date %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ title }}",
+  "datePublished": "{{ date | isoDate }}",
+  "dateModified": "{{ date | isoDate }}",
+  "description": "{{ pageDescription }}",
+  "mainEntityOfPage": "{{ canonical }}",
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ site.organization.name }}"
+  }
+}
+</script>
+{% endif %}

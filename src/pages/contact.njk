@@ -1,0 +1,45 @@
+---
+title: Contact
+metaTitle: Contact | Keystone Neuroinformatics
+metaDescription: Contact Keystone Neuroinformatics for general inquiries, collaboration discussions, research questions, and future project conversations.
+canonicalPath: /contact/
+permalink: /contact/index.html
+eyebrow: Contact
+intro: Direct email remains the main contact workflow, with collaboration discussions routed through a more structured intake page.
+---
+<section>
+  <div class="contact-grid">
+    <article class="contact-panel contact-card contact-card-primary">
+      <h2>General inquiries</h2>
+      <p class="contact-note">Use the main address for broad questions about the organization, website, or future updates.</p>
+      <div class="contact-link-row">
+        <a class="contact-link" href="mailto:{{ site.contact.info }}">{{ site.contact.info }}</a>
+        <button class="copy-email-btn" data-email="{{ site.contact.info }}" aria-label="Copy {{ site.contact.info }} to clipboard">Copy</button>
+      </div>
+    </article>
+
+    <article class="contact-panel contact-card contact-card-primary">
+      <h2>Collaboration requests</h2>
+      <p class="contact-note">For research, data, or strategy discussions, use the collaboration address or the structured intake flow.</p>
+      <div class="contact-link-row">
+        <a class="contact-link" href="mailto:{{ site.contact.collaborate }}">{{ site.contact.collaborate }}</a>
+        <button class="copy-email-btn" data-email="{{ site.contact.collaborate }}" aria-label="Copy {{ site.contact.collaborate }} to clipboard">Copy</button>
+      </div>
+      <p><a class="button button-secondary-dark" href="/collaborate/">Open structured intake</a></p>
+    </article>
+
+    <article class="contact-panel contact-card contact-card-full">
+      <h2>Suggested inquiry types</h2>
+      <ul class="list-clean topic-list">
+        {% for item in site.inquiryTypes %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="callout">
+  <h2>Best-fit themes</h2>
+  <p>The clearest fit for this site is work related to clinical AI, computational psychiatry, multimodal behavioral health data, and translational psychiatric research. Research and project updates will appear in the <a href="/research/">Research and Updates</a> archive as they are published.</p>
+</section>

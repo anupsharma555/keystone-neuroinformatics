@@ -1,107 +1,98 @@
 # Keystone Neuroinformatics
 
-A lightweight, multi-page static website for Keystone Neuroinformatics, built with vanilla HTML, CSS, and no frameworks.
+Keystone Neuroinformatics is now scaffolded as an Eleventy-powered static site for Cloudflare Pages. The current implementation is intentionally designed as a future-ready publishing system: stable organization pages, collection-driven project profiles, a research-and-updates archive, collaboration intake guidance, and SEO/AI-discovery support.
 
-## Overview
+## What changed
 
-This site provides information about Keystone Neuroinformatics, our mission, focus areas, and contact information. The site is designed to be responsive, accessible, and deployable on Cloudflare Pages.
+- Eleventy templates and layouts replace hand-authored standalone HTML pages.
+- Core routes now use clean URLs such as `/about/`, `/projects/`, and `/research/`.
+- Project pages live in a content collection under `src/projects/`.
+- Research and blog-style updates live in a content collection under `src/research/`.
+- Shared metadata, navigation, contact details, and crawler configuration live in `src/_data/site.js`.
+- The site generates `robots.txt`, `sitemap.xml`, and `llms.txt`.
+- The collaboration workflow is scaffolded via `/collaborate/`.
 
-## Site Structure
+## Structure
 
-- **index.html** - Homepage with welcome message and overview
-- **about.html** - Information about our mission, approach, and values
-- **focus.html** - Details about our key focus areas
-- **contact.html** - Contact information and inquiry guidelines
-- **styles-v2.css** - Responsive, accessible styling for all pages
+- `src/pages/` core public pages
+- `src/projects/` project content files
+- `src/research/` research and update content files
+- `src/_includes/` layouts, partials, and reusable macros
+- `src/_data/site.js` shared site configuration
+- `src/assets/` styles, scripts, favicon, social card, and future images
+- [`CONTENT-CHECKLIST.md`](/Users/anup/gitProjects/keystone-neuroinformatics/CONTENT-CHECKLIST.md) downstream content/assets checklist
 
-## Features
+## Local development
 
-- **Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
-- **Accessible**: Built with WCAG accessibility guidelines in mind
-  - Semantic HTML5 elements
-  - ARIA labels for navigation
-  - Keyboard navigation support
-  - Focus indicators for interactive elements
-  - Support for reduced motion preferences
-  - High contrast mode support
-- **Cross-browser Compatible**: Works on all modern browsers
-- **Lightweight**: No frameworks or dependencies, fast load times
-- **SEO Friendly**: Proper meta tags and semantic structure
-
-## Deployment on Cloudflare Pages
-
-### Prerequisites
-- A Cloudflare account
-- Git repository with the site files
-
-### Deployment Steps
-
-1. **Connect Your Repository**
-   - Log in to your Cloudflare dashboard
-   - Navigate to Pages
-   - Click "Create a project"
-   - Connect your GitHub/GitLab repository
-
-2. **Configure Build Settings**
-   - Framework preset: None
-   - Build command: (leave empty)
-   - Build output directory: `/`
-   - Root directory: (leave empty or specify if your files are in a subdirectory)
-
-3. **Deploy**
-   - Click "Save and Deploy"
-   - Your site will be available at `https://your-project.pages.dev`
-
-### Custom Domain (Optional)
-1. In Cloudflare Pages, go to your project
-2. Navigate to "Custom domains"
-3. Add your custom domain
-4. Update your DNS settings as instructed
-
-## Local Development
-
-To preview the site locally, you can use any static file server:
-
-### Using Python
 ```bash
-python -m http.server 8000
+npm install
+npm run build
+npm run dev
 ```
 
-### Using Node.js (http-server)
+Eleventy outputs the generated site to `_site/`.
+
+## Cloudflare Pages
+
+Recommended Pages settings:
+
+- Production branch: `main`
+- Build command: `npm run build`
+- Build output directory: `_site`
+- Root directory: `/`
+- Node.js version: `22` (set `NODE_VERSION=22` in Pages environment variables if needed)
+
+Cloudflare Pages should deploy automatically when new commits land on the configured production branch. If preview deployments are enabled, pushes to non-production branches or pull requests can generate preview builds without affecting the live site.
+
+## GitHub push and deploy workflow
+
+Recommended workflow:
+
+1. Create a working branch from `main`.
+2. Commit the site changes on that branch.
+3. Push the branch to GitHub.
+4. Open and review a pull request into `main`.
+5. Merge into `main` once the build looks correct.
+6. Let Cloudflare Pages rebuild from `main`.
+
+Typical commands:
+
 ```bash
-npx http-server
+git switch -c codex/site-refresh
+git add .
+git commit -m "Rebuild site with Eleventy scaffold and content refresh"
+git push -u origin codex/site-refresh
 ```
 
-### Using PHP
-```bash
-php -S localhost:8000
-```
+After merge, verify the Cloudflare deployment log for:
 
-Then open your browser to `http://localhost:8000`
+- install step completes
+- `npm run build` succeeds
+- output directory is `_site`
+- no missing dependency or Node-version errors
 
-## Browser Support
+This repository should commit source files and configuration only. Do not commit `node_modules/`, `_site/`, or local Playwright artifacts.
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
+## Content workflow
 
-## Accessibility
+To add a new project:
 
-This site follows web accessibility best practices:
-- Proper heading hierarchy
-- Alt text for images (when applicable)
-- Keyboard navigation
-- ARIA landmarks
-- Sufficient color contrast
-- Responsive font sizing
-- Focus indicators
+1. Create a Markdown file in `src/projects/`.
+2. Add front matter for title, summary, status, problem, approach, collaborators, next steps, and contact CTA.
+3. Optionally add `image`, `imageAlt`, and `imageCaption`.
+
+To add a new research update:
+
+1. Create a Markdown file in `src/research/`.
+2. Add front matter for title, date, summary, key insight, and implications.
+3. Optionally add `image`, `imageAlt`, and `imageCaption`.
+
+## Notes
+
+- Placeholder project and research pages are scaffolds only and should be replaced with real details over time.
+- Old `.html` routes redirect to clean URLs via `_redirects`.
+- The current site remains fully static; no CMS or backend has been introduced yet.
 
 ## License
 
-See LICENSE file for details.
-
-## Contributing
-
-This is a static informational site. For updates or corrections, please submit issues or pull requests.
+See `LICENSE`.

@@ -1,0 +1,18 @@
+---
+layout: layouts/page.njk
+title: Projects
+metaTitle: Projects | Keystone Neuroinformatics
+metaDescription: "Explore four focused project areas for Keystone Neuroinformatics: clinical AI, computational psychiatry, multimodal biomarkers, and translational therapeutics."
+canonicalPath: /projects/
+permalink: /projects/index.html
+eyebrow: Projects
+intro: Four focused themes drawn from real clinical and research experience.
+---
+{% from "partials/card-macros.njk" import collectionCard %}
+<section>
+  <div class="card-grid">
+    {% for project in collections.projects %}
+    {{ collectionCard(project, "Project") }}
+    {% endfor %}
+  </div>
+</section>

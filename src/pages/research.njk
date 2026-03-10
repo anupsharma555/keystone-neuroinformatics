@@ -1,0 +1,23 @@
+---
+layout: layouts/page.njk
+title: Research
+metaTitle: Research and Updates | Keystone Neuroinformatics
+metaDescription: Follow selected research summaries and updates for Keystone Neuroinformatics, with emphasis on computational psychiatry, neuroimaging, interventions, and clinical AI.
+canonicalPath: /research/
+permalink: /research/index.html
+eyebrow: Research and updates
+intro: Selected research summaries, short interpretive notes, and occasional updates connected to the site’s core themes.
+---
+{% from "partials/card-macros.njk" import collectionCard %}
+<section>
+  <div class="card-grid">
+    {% for entry in collections.researchUpdates %}
+    {{ collectionCard(entry, "Research update") }}
+    {% endfor %}
+  </div>
+</section>
+
+<section class="callout">
+  <h2>Archive purpose</h2>
+  <p>Entries here summarize selected publications, connect papers to project themes, and surface why a result matters for behavioral health informatics, clinical AI, and translational neuroscience. The intent is clarity and signal, not volume.</p>
+</section>
