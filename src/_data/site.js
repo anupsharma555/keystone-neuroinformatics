@@ -7,6 +7,7 @@ module.exports = {
   domain: "www.keystoneneuroinformatics.com",
   locale: "en_US",
   themeColor: "#2a7d5b",
+  logo: "/assets/favicon.svg",
   socialImage: "/assets/social-card.svg",
   copyrightYear: "2026",
   contact: {
@@ -17,6 +18,7 @@ module.exports = {
     { label: "Home", href: "/" },
     { label: "About", href: "/about/" },
     { label: "Focus", href: "/focus/" },
+    { label: "Services", href: "/services/" },
     { label: "Projects", href: "/projects/" },
     { label: "Research", href: "/research/" },
     { label: "Collaborate", href: "/collaborate/" },
@@ -32,6 +34,26 @@ module.exports = {
   organization: {
     type: "Organization",
     name: "Keystone Neuroinformatics",
-    email: "info@keystoneneuroinformatics.com"
+    legalName: "Keystone Neuroinformatics LLC",
+    description: "Keystone Neuroinformatics focuses on clinical AI, psychiatry, neuroscience, behavioral health informatics, multimodal data, and translational research.",
+    email: "contact@keystoneneuroinformatics.com",
+    areaServed: "United States",
+    founder: {
+      name: "Anup Sharma, MD PhD",
+      sameAs: [
+        "https://www.linkedin.com/in/anup-sharma-md-phd-7948a434/"
+      ]
+    },
+    knowsAbout: [
+      "Clinical AI",
+      "Psychiatry",
+      "Computational psychiatry",
+      "Behavioral health informatics",
+      "Neuroimaging",
+      "Multimodal biomarkers",
+      "Digital phenotyping",
+      "Clinical trials"
+    ],
+    sameAs: []
   }
 };

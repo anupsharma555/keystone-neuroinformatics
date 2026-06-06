@@ -46,6 +46,12 @@ module.exports = function(eleventyConfig) {
     });
   });
 
+  eleventyConfig.addCollection("services", function(collectionApi) {
+    return collectionApi.getFilteredByTag("service").sort(function(a, b) {
+      return (a.data.order || 0) - (b.data.order || 0);
+    });
+  });
+
   eleventyConfig.addCollection("publicPages", function(collectionApi) {
     return collectionApi.getAll().filter(function(item) {
       if (!item.url || !item.outputPath) {

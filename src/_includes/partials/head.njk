@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="{{ pageDescription }}">
+<meta name="google-site-verification" content="HiFgDvUL5XssTCVEX73RZ4jpeYqiv3NUkDSR5nJh7ec">
 <link rel="canonical" href="{{ canonical }}">
 <meta name="theme-color" content="{{ site.themeColor }}">
 <meta property="og:type" content="{% if pageType == 'research' and not placeholder %}article{% else %}website{% endif %}">
@@ -20,11 +21,102 @@
 <meta name="twitter:image" content="{{ socialImage }}">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <title>{{ pageTitle }}</title>
+{% if pageType == "home" %}
+{% set homepageUrl = "/" | absoluteUrl(site) %}
+{% set organizationId = homepageUrl + "#organization" %}
+{% set websiteId = homepageUrl + "#website" %}
+{% set webpageId = homepageUrl + "#webpage" %}
+{% set breadcrumbId = homepageUrl + "#breadcrumb" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ organizationId }}",
+      "name": "{{ site.organization.name }}",
+      "legalName": "{{ site.organization.legalName }}",
+      "url": "{{ homepageUrl }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.logo | absoluteUrl(site) }}"
+      },
+      "description": "{{ site.organization.description }}",
+      "email": "{{ site.organization.email }}",
+      {% if site.organization.sameAs and site.organization.sameAs.length %}
+      "sameAs": [
+        {% for link in site.organization.sameAs %}
+        "{{ link }}"{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ],
+      {% endif %}
+      "founder": {
+        "@type": "Person",
+        "name": "{{ site.organization.founder.name }}",
+        "sameAs": [
+          {% for link in site.organization.founder.sameAs %}
+          "{{ link }}"{% if not loop.last %},{% endif %}
+          {% endfor %}
+        ]
+      },
+      "knowsAbout": [
+        {% for topic in site.organization.knowsAbout %}
+        "{{ topic }}"{% if not loop.last %},{% endif %}
+        {% endfor %}
+      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "{{ site.organization.areaServed }}"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ websiteId }}",
+      "name": "{{ site.name }}",
+      "url": "{{ homepageUrl }}",
+      "description": "{{ site.description }}",
+      "publisher": {
+        "@id": "{{ organizationId }}"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "{{ webpageId }}",
+      "url": "{{ canonical }}",
+      "name": "{{ pageTitle }}",
+      "description": "{{ pageDescription }}",
+      "isPartOf": {
+        "@id": "{{ websiteId }}"
+      },
+      "about": {
+        "@id": "{{ organizationId }}"
+      },
+      "breadcrumb": {
+        "@id": "{{ breadcrumbId }}"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "{{ breadcrumbId }}",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ homepageUrl }}"
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% else %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "{{ site.organization.name }}",
+  "legalName": "{{ site.organization.legalName }}",
   "url": "{{ site.url }}",
   "email": "{{ site.organization.email }}"
 }
@@ -37,6 +129,7 @@
   "url": "{{ site.url }}"
 }
 </script>
+{% endif %}
 {% if pageType == "research" and not placeholder and date %}
 <script type="application/ld+json">
 {
