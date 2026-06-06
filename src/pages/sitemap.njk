@@ -34,4 +34,20 @@ eleventyExcludeFromCollections: true
     <loc>https://www.keystoneneuroinformatics.com/contact/</loc>
     <lastmod>2026-03-09</lastmod>
   </url>
+{% set staticUrls = [
+  "/",
+  "/about/",
+  "/focus/",
+  "/projects/",
+  "/research/",
+  "/collaborate/",
+  "/contact/"
+] %}
+{% for entry in collections.publicPages %}
+{%   if entry.url not in staticUrls %}
+  <url>
+    <loc>{{ entry.url | absoluteUrl(site) }}</loc>
+  </url>
+{%   endif %}
+{% endfor %}
 </urlset>
