@@ -1,0 +1,82 @@
+---
+layout: layouts/base.njk
+---
+<main id="main-content">
+  <section class="page-band">
+    <div class="container page-band-inner">
+      <p class="eyebrow">Service area</p>
+      <h1>{{ title }}</h1>
+      <p class="page-intro">{{ summary }}</p>
+      {% if keywords %}
+      <ul class="topic-list service-topics" aria-label="Relevant search topics">
+        {% for keyword in keywords %}
+        <li>{{ keyword }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </section>
+  <section class="content-section">
+    <div class="container prose-flow">
+      <section>
+        <h2>Who this is for</h2>
+        <p>{{ who }}</p>
+      </section>
+
+      <section>
+        <h2>Problems Keystone helps solve</h2>
+        <ul>
+          {% for item in problems %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section>
+        <h2>Example questions clients bring</h2>
+        <ul>
+          {% for item in questions %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section>
+        <h2>Methods and capabilities</h2>
+        <ul>
+          {% for item in methods %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section>
+        <h2>Typical deliverables</h2>
+        <ul>
+          {% for item in deliverables %}
+          <li>{{ item }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <section>
+        <h2>Relevant research foundation</h2>
+        <p>{{ research_foundation }}</p>
+      </section>
+
+      <section>
+        <h2>What Keystone does not do</h2>
+        <p>{{ not_do }}</p>
+      </section>
+
+      <section class="callout">
+        <h2>Collaboration and contact</h2>
+        <p>{{ contact_cta }}</p>
+        <div class="action-row">
+          <a class="button" href="/collaborate/">Start a collaboration request</a>
+          <a class="button button-secondary-dark" href="/contact/">Contact Keystone</a>
+        </div>
+      </section>
+    </div>
+  </section>
+</main>

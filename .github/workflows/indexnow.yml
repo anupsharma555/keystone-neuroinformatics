@@ -1,0 +1,31 @@
+name: Submit IndexNow URLs
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".eleventy.js"
+      - "src/**"
+      - "package.json"
+      - "package-lock.json"
+
+jobs:
+  submit-indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Wait for Pages deployment
+        if: github.event_name == 'push'
+        run: sleep "${INDEXNOW_WAIT_SECONDS:-180}"
+
+      - name: Submit live sitemap URLs to IndexNow
+        run: npm run indexnow:submit

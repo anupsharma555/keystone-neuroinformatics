@@ -28,9 +28,24 @@ Keystone Neuroinformatics is now scaffolded as an Eleventy-powered static site f
 npm install
 npm run build
 npm run dev
+npm run indexnow:submit -- --dry-run
 ```
 
 Eleventy outputs the generated site to `_site/`.
+
+## Search discovery
+
+The site publishes `robots.txt`, `sitemap.xml`, `llms.txt`, and a public IndexNow key file. The IndexNow key is configured in `src/_data/discovery.js`, emitted at the site root, and used by `npm run indexnow:submit` to submit the live sitemap URLs to participating IndexNow engines.
+
+After changing public content, submit URLs after the Cloudflare Pages production deployment is live:
+
+```bash
+npm run indexnow:submit
+```
+
+The `Submit IndexNow URLs` GitHub Action also runs on pushes to `main` that affect source or build files, with a short wait for Cloudflare Pages deployment.
+
+Recommended Cloudflare dashboard setting: enable Crawler Hints under the zone's cache/configuration settings. Keep Cloudflare managed `robots.txt` disabled so the repository-controlled crawler policy is served without Cloudflare's prepended AI crawler block.
 
 ## Cloudflare Pages
 

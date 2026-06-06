@@ -1,0 +1,20 @@
+---
+layout: layouts/page.njk
+title: Services
+metaTitle: Services | Keystone Neuroinformatics
+metaDescription: Service areas for clinical AI evaluation, behavioral health informatics, computational psychiatry, neuroimaging, multimodal biomarkers, digital phenotyping, psychiatric trials analytics, and healthcare LLM evaluation.
+canonicalPath: /services/
+permalink: /services/index.html
+eyebrow: Services
+intro: Practical support areas for teams working at the intersection of psychiatry, behavioral health, AI evaluation, neuroimaging, and translational data science.
+---
+{% from "partials/card-macros.njk" import collectionCard %}
+<section>
+  <h2>Search-intent service areas</h2>
+  <p>These pages translate Keystone’s research and technical focus into concrete collaboration areas. They are intentionally limited to distinct service contexts rather than many small keyword variations.</p>
+  <div class="card-grid">
+    {% for service in collections.services %}
+    {{ collectionCard(service, "Service") }}
+    {% endfor %}
+  </div>
+</section>

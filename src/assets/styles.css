@@ -600,6 +600,11 @@ button:focus {
   font-size: 1rem;
 }
 
+.service-topics {
+  margin-top: 1.25rem;
+  max-width: 54rem;
+}
+
 .empty-state-label {
   color: var(--color-accent-dark);
   font-weight: 700;

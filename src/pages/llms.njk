@@ -6,21 +6,28 @@ eleventyExcludeFromCollections: true
 ---
 # {{ site.name }}
 
-> Behavioral health neuroscience, data science, project scaffolding, and research updates.
+> Behavioral health neuroscience, data science, service areas, project scaffolding, and research updates.
 
 ## Summary
 
-{{ site.name }} is a static publishing site for computational neuroscience and behavioral health informatics. It contains stable organizational pages, a project archive scaffold, a research-and-updates archive, and structured collaboration intake guidance for future human and AI-assisted workflows.
+{{ site.name }} is a static publishing site for computational neuroscience and behavioral health informatics. It contains stable organizational pages, practical service pages, a project archive scaffold, a research-and-updates archive, and structured collaboration intake guidance for future human and AI-assisted workflows.
 
 ## Key Pages
 
 - [Home]({{ site.url }}/): Overview and site entry point.
 - [About]({{ site.url }}/about/): Mission, operating model, and publishing context.
 - [Focus]({{ site.url }}/focus/): Current thematic focus areas.
+- [Services]({{ site.url }}/services/): Practical service areas mapped to common collaboration and search intents.
 - [Projects]({{ site.url }}/projects/): Project archive scaffold and future project profiles.
 - [Research and Updates]({{ site.url }}/research/): Blog-like archive for research summaries and project updates.
 - [Collaborate]({{ site.url }}/collaborate/): Structured collaboration intake guidance.
 - [Contact]({{ site.url }}/contact/): Direct contact routes.
+
+## Service Pages
+
+{% for service in collections.services -%}
+- [{{ service.data.title }}]({{ service.url | absoluteUrl(site) }}): {{ service.data.summary }}
+{% endfor %}
 
 ## Collaboration Intake
 
