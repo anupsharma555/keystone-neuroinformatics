@@ -7,13 +7,39 @@ eleventyExcludeFromCollections: true
 User-agent: *
 Allow: /
 
+# ChatGPT Search discovery.
 User-agent: OAI-SearchBot
 Allow: /
 
+# ChatGPT user-request fetches.
+User-agent: ChatGPT-User
+Allow: /
+
+# OpenAI model-training crawler.
 User-agent: GPTBot
 Allow: /
 
-User-agent: ChatGPT-User
+# Perplexity search discovery.
+User-agent: PerplexityBot
+Allow: /
+
+# Claude search and user-request fetches.
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# Anthropic model-training crawler.
+User-agent: ClaudeBot
+Allow: /
+
+# Google Gemini / Vertex AI training and grounding control.
+User-agent: Google-Extended
+Allow: /
+
+# Common Crawl dataset crawler.
+User-agent: CCBot
 Allow: /
 
 Sitemap: {{ "/sitemap.xml" | absoluteUrl(site) }}
