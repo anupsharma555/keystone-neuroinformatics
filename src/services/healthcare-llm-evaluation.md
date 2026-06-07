@@ -1,7 +1,10 @@
 ---
 title: Healthcare LLM Evaluation for Clinical and Behavioral Health Use Cases
 summary: Evaluation support for language-model systems in healthcare, with emphasis on clinical reasoning, psychiatric context, safety, uncertainty, and workflow alignment.
-order: 6
+order: 3
+image: /assets/images/service-healthcare-llm-evaluation.jpg
+imageAlt: Abstract healthcare LLM evaluation image with layered clinical data panels, safety-review flows, and outcome analytics
+imageCaption: AI-generated service image representing healthcare LLM evaluation and clinical behavioral-health review workflows.
 keywords:
   - LLM evaluation in healthcare
   - healthcare AI model evaluation

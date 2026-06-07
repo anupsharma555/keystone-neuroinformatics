@@ -1,7 +1,10 @@
 ---
 title: Computational Psychiatry and Neuroimaging Data Science
 summary: Support for projects using neuroimaging, computational psychiatry, reward-circuitry concepts, and clinical phenotyping to study behavioral health questions.
-order: 3
+order: 6
+image: /assets/images/service-computational-psychiatry-neuroimaging.jpg
+imageAlt: Abstract computational psychiatry and neuroimaging image with wearable signals, behavioral health data streams, brain-network motifs, and imaging layers
+imageCaption: AI-generated service image representing multimodal signals, neuroimaging, and computational psychiatry data science.
 keywords:
   - computational psychiatry consulting
   - neuroimaging data science consultant
