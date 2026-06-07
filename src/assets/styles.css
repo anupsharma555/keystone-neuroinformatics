@@ -450,6 +450,11 @@ button:focus {
   padding: 2.35rem 0 1.6rem;
 }
 
+.page-band .eyebrow {
+  color: var(--color-accent-dark);
+  font-weight: 800;
+}
+
 .page-band h1 {
   color: var(--color-heading);
   font-size: var(--font-size-page-title);
