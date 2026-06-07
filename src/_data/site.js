@@ -9,6 +9,7 @@ module.exports = {
   themeColor: "#2a7d5b",
   logo: "/assets/favicon.svg",
   socialImage: "/assets/social-card.svg",
+  assetVersion: "2026-06-07-2",
   copyrightYear: "2026",
   contact: {
     info: "info@keystoneneuroinformatics.com",

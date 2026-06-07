@@ -451,6 +451,9 @@ button:focus {
 }
 
 .page-band .eyebrow {
+  padding: 0.12rem 0.32rem;
+  border-radius: 0.2rem;
+  background: rgba(42, 125, 91, 0.12);
   color: var(--color-accent-dark);
   font-weight: 800;
 }
