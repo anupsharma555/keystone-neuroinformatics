@@ -3,6 +3,7 @@ _site/
 .cache/
 output/
 .playwright-cli/
+.local/
 private.env
 private.cloudflare.keystone-neuroinformatics.env
 .env
