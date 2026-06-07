@@ -10,6 +10,11 @@
     "build": "eleventy",
     "dev": "eleventy --serve",
     "clean": "rm -rf _site",
+    "audit:metadata": "node scripts/audit-metadata.mjs",
+    "audit:metadata:strict": "node scripts/audit-metadata.mjs --strict",
+    "verify:live": "scripts/verify-live-site.sh",
+    "deploy:cloudflare": "scripts/deploy-cloudflare-pages.sh",
+    "cloudflare:traffic": "scripts/cloudflare_traffic_summary.sh",
     "indexnow:submit": "node scripts/submit-indexnow.mjs"
   },
   "devDependencies": {
