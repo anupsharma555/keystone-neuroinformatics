@@ -2,7 +2,7 @@
 title: Psychiatric Clinical Trials Analytics
 summary: Analytic and translational support for psychiatric trials, behavioral health outcomes, intervention studies, and clinically interpretable evidence generation.
 order: 5
-image: /assets/images/service-psychiatric-clinical-trials-analytics.jpg
+image: /assets/images/service-psychiatric-clinical-trials-analytics-v2.jpg
 imageAlt: Abstract psychiatric clinical trials analytics image with endpoint timelines, cohort flows, longitudinal outcome curves, and evidence review panels
 imageCaption: AI-generated service image representing psychiatric clinical trials analytics, endpoint review, and longitudinal evidence interpretation.
 keywords:
