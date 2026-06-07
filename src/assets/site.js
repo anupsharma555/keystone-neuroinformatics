@@ -88,58 +88,19 @@ document.addEventListener("DOMContentLoaded", function() {
   var closeButton = intakeDialog ? intakeDialog.querySelector("[data-intake-close]") : null;
   var emailSubmit = document.getElementById("intake-email-submit");
   var copySubmit = document.getElementById("intake-copy-submit");
-  var activeIntakeKind = "collaboration";
   var activeIntakeEmail = "";
 
-  function setIntakeMode(kind, email) {
-    var aiOnlyFields = document.querySelectorAll(".intake-ai-only");
-    activeIntakeKind = kind;
+  function setIntakeEmail(email) {
     activeIntakeEmail = email;
-
-    if (kind === "ai-idea") {
-      intakeEyebrow.textContent = "AI-assisted idea";
-      intakeTitle.textContent = "Share an AI-assisted project idea";
-      intakeNote.textContent = "This form prepares a structured idea submission that can be emailed or copied.";
-      aiOnlyFields.forEach(function(field) {
-        field.hidden = false;
-      });
-      return;
-    }
 
     intakeEyebrow.textContent = "Collaboration intake";
     intakeTitle.textContent = "Start a collaboration request";
     intakeNote.textContent = "This form prepares a structured collaboration request that can be emailed or copied.";
-    aiOnlyFields.forEach(function(field) {
-      field.hidden = true;
-    });
   }
 
   function collectIntakeBody() {
     var formData = new FormData(intakeForm);
     var body = "";
-
-    if (activeIntakeKind === "ai-idea") {
-      body += buildField("Organization or lab", formData.get("organization"));
-      body += "\n";
-      body += buildField("Project or program", formData.get("project"));
-      body += "\n";
-      body += buildField("Specific aims or core questions", formData.get("aims"));
-      body += "\n";
-      body += buildField("Data types or systems involved", formData.get("data"));
-      body += "\n";
-      body += buildField("Requested support", formData.get("support"));
-      body += "\n";
-      body += buildField("Timeline or constraints", formData.get("timeline"));
-      body += "\n";
-      body += buildField("Intended users", formData.get("users"));
-      body += "\n";
-      body += buildField("Expected output", formData.get("output"));
-      body += "\n";
-      body += buildField("Why this matters in behavioral health or psychiatry", formData.get("importance"));
-      body += "\n";
-      body += buildField("Was this drafted with an AI assistant?", formData.get("drafted_with_ai"));
-      return body;
-    }
 
     body += buildField("Organization or lab", formData.get("organization"));
     body += "\n";
@@ -152,13 +113,15 @@ document.addEventListener("DOMContentLoaded", function() {
     body += buildField("Requested support", formData.get("support"));
     body += "\n";
     body += buildField("Timeline or constraints", formData.get("timeline"));
+    body += "\n";
+    body += buildField("Email address", formData.get("email"));
     return body;
   }
 
   if (intakeDialog && intakeForm && intakeTitle && intakeEyebrow && intakeNote) {
     openButtons.forEach(function(button) {
       button.addEventListener("click", function() {
-        setIntakeMode(button.dataset.intakeKind, button.dataset.intakeEmail);
+        setIntakeEmail(button.dataset.intakeEmail);
         intakeForm.reset();
         intakeDialog.showModal();
       });
@@ -177,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     emailSubmit.addEventListener("click", function() {
-      var subject = activeIntakeKind === "ai-idea" ? "AI-Assisted Project Idea" : "Collaboration Inquiry";
+      var subject = "Collaboration Inquiry";
       var body = collectIntakeBody();
       window.location.href = "mailto:" + activeIntakeEmail + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     });
@@ -194,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
           }
 
-          intakeNote.textContent = "Copy failed. Please use the email draft option.";
+          intakeNote.textContent = "Copy failed. Please use the email option.";
         });
         return;
       }
@@ -204,9 +167,9 @@ document.addEventListener("DOMContentLoaded", function() {
         return;
       }
 
-      intakeNote.textContent = "Copy failed. Please use the email draft option.";
+      intakeNote.textContent = "Copy failed. Please use the email option.";
     });
 
-    setIntakeMode("collaboration", "");
+    setIntakeEmail("");
   }
 });

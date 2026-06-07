@@ -199,6 +199,10 @@ button:focus {
   text-transform: uppercase;
   letter-spacing: 0.17em;
   font-weight: 700;
+  color: var(--color-accent-dark);
+}
+
+.hero .eyebrow {
   color: #d7f8e7;
 }
 

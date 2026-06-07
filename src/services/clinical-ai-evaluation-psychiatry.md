@@ -2,6 +2,9 @@
 title: Clinical AI Evaluation for Psychiatry and Behavioral Health
 summary: Evaluation support for AI systems used in psychiatric reasoning, behavioral health workflows, safety review, and clinically complex decision support.
 order: 1
+image: /assets/images/service-clinical-ai-evaluation.jpg
+imageAlt: Abstract clinical AI evaluation image with layered rubric tiles, safety-calibration arcs, and behavioral health signal trajectories
+imageCaption: AI-generated service image representing clinical AI evaluation, safety calibration, and psychiatric reasoning review.
 keywords:
   - clinical AI evaluation psychiatry
   - AI model evaluation for psychiatric reasoning

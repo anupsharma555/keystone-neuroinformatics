@@ -35,10 +35,9 @@ intro: A simple intake structure for collaboration discussions across the siteâ€
 
 <section class="contact-panel">
   <h2>Start the conversation</h2>
-  <p>Use one of the forms below to prepare a structured request. For now, submissions open as a drafted email or can be copied to the clipboard.</p>
+  <p>Use the form below to prepare a structured request. For now, submissions open through email or can be copied to the clipboard.</p>
   <div class="action-row">
     <button class="button js-intake-open" type="button" data-intake-kind="collaboration" data-intake-email="{{ site.contact.collaborate }}">Open collaboration form</button>
-    <button class="button button-secondary-dark js-intake-open" type="button" data-intake-kind="ai-idea" data-intake-email="{{ site.contact.collaborate }}">Open AI idea form</button>
   </div>
 </section>
 
@@ -87,27 +86,14 @@ intro: A simple intake structure for collaboration discussions across the siteâ€
         <span>Timeline or constraints</span>
         <textarea name="timeline" rows="3"></textarea>
       </label>
-
-      <label class="field-full intake-ai-only">
-        <span>Intended users</span>
-        <textarea name="users" rows="2"></textarea>
-      </label>
-      <label class="field-full intake-ai-only">
-        <span>Expected output</span>
-        <textarea name="output" rows="2"></textarea>
-      </label>
-      <label class="field-full intake-ai-only">
-        <span>Why this matters in behavioral health or psychiatry</span>
-        <textarea name="importance" rows="3"></textarea>
-      </label>
-      <label class="field-full intake-ai-only">
-        <span>Was this drafted with an AI assistant?</span>
-        <input type="text" name="drafted_with_ai" placeholder="e.g. yes, with ChatGPT or Claude">
+      <label class="field-full">
+        <span>Email address</span>
+        <input type="email" name="email" autocomplete="email">
       </label>
     </div>
 
     <div class="action-row">
-      <button class="button" type="button" id="intake-email-submit">Open email draft</button>
+      <button class="button" type="button" id="intake-email-submit">Send email</button>
       <button class="button button-secondary-dark" type="button" id="intake-copy-submit">Copy request text</button>
     </div>
     <p class="intake-note" id="intake-note">The form stays on this page and prepares a structured message.</p>
