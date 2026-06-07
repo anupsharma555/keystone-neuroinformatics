@@ -1,6 +1,6 @@
 ---
 title: "Clinical AI in psychiatry"
-summary: "Public-facing theme focused on evaluation and practical use of AI systems for psychiatric reasoning, clinical workflows, and medically complex decision support."
+summary: "Theme focused on evaluation and practical use of AI systems for psychiatric reasoning, clinical workflows, and medically complex decision support."
 status: "Active theme"
 placeholder: false
 image: /assets/images/clinical-ai-in-psychiatry.png
