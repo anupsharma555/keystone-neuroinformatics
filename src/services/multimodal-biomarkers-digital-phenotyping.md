@@ -2,6 +2,9 @@
 title: Multimodal Biomarkers and Digital Phenotyping in Behavioral Health
 summary: Project support for combining clinical, behavioral, digital, imaging, and other data streams into interpretable biomarker or phenotyping strategies.
 order: 4
+image: /assets/images/service-multimodal-biomarkers-digital-phenotyping.jpg
+imageAlt: Abstract multimodal biomarker image with feature layers, behavioral health signal streams, outcome charts, and validation pathways
+imageCaption: AI-generated service image representing multimodal biomarkers, digital phenotyping, and interpretable behavioral health signal fusion.
 keywords:
   - multimodal biomarker development
   - digital phenotyping behavioral health

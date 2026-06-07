@@ -2,6 +2,9 @@
 title: Behavioral Health Informatics Consulting
 summary: Informatics and data-science support for behavioral health teams designing research workflows, data structures, analytic plans, and clinically grounded technical systems.
 order: 2
+image: /assets/images/service-behavioral-health-informatics.jpg
+imageAlt: Abstract behavioral health informatics image with circular workflow map, data-governance pathways, and structured outcome signals
+imageCaption: AI-generated service image representing behavioral health informatics, data governance, and clinical-to-technical workflow design.
 keywords:
   - behavioral health informatics consultant
   - mental health data science consulting
