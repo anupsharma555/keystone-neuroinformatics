@@ -23,6 +23,20 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
+# Apple search and AI discovery.
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# DuckDuckGo AI/search assistant discovery.
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
 # Claude search and user-request fetches.
 User-agent: Claude-SearchBot
 Allow: /
@@ -41,5 +55,12 @@ Allow: /
 # Common Crawl dataset crawler.
 User-agent: CCBot
 Allow: /
+
+# Excluded AI crawlers.
+User-agent: Bytespider
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
 
 Sitemap: {{ "/sitemap.xml" | absoluteUrl(site) }}
